@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Me</title>
+</head>
+<body>
+<h1>About Me</h1>
+<ul>
+    <li>My name: <span id="name"></span></li>
+    <li>Hometown: <span id="hometown"></span></li>
+    <li>Time: <span id="time"></span></li>
+    <li>Sum of <span class="number">2</span> and <span class="number">3</span> is equal to <span id="sum"></span></li>
+</ul>
+<script>
+    window.addEventListener("load",aboutMe,false);
+    function aboutMe() {
+        // Log
+        console.log("aboutMe");
+        // Set Name
+        document.getElementById("name").innerHTML = "Lisa Ramaekers";
+        // Get current date and set Time
+        var d = new Date();
+        document.getElementById("time").innerHTML = d.getHours()+"u"+d.getMinutes()+"min"+d.getSeconds()+"sec";
+        // Generate random numbers and calculate the sum
+        var numbers = document.getElementsByClassName("number");
+        var sum = 0;
+        for (var i=0, len=numbers.length|0; i<len; i=i+1|0) {
+            var random = Math.round(Math.random()*10);
+            numbers.item(i).innerHTML = random;
+            sum = sum + random;
+        }
+        document.getElementById("sum").innerHTML = sum;
+        // Set odd list items in different color
+        var listItems = document.getElementsByTagName("li");
+        for (var i=0, len=listItems.length|0; i<len; i=i+1|0) {
+            if ((i % 2) == 0) {
+                listItems.item(i).style.background = "#C0C0C0";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
